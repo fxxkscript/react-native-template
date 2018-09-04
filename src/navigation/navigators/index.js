@@ -23,6 +23,8 @@ const RootNavigator = createStackNavigator({
   [screenNames.WELCOME]: {
     screen: WelcomeNavigator
   }
+}, {
+  initialRouteName: screenNames.SPLASH,
 });
 
 const AppWithNavigationState = reduxifyNavigator(RootNavigator, 'root');
