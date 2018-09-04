@@ -1,9 +1,9 @@
-import { createTabNavigator } from 'react-navigation';
+import { createBottomTabNavigator } from 'react-navigation';
 import * as screenNames from '../screen_names';
 import Settings from 'features/settings/containers';
 import { UserProfile } from 'features/user_profile/containers';
 
-export default createTabNavigator(
+export default createBottomTabNavigator(
   {
     [screenNames.SETTINGS]: {
       screen: Settings
@@ -24,7 +24,7 @@ export default createTabNavigator(
         paddingVertical: 7
       },
       labelStyle: {
-        fontSize: 9
+        fontSize: 20
       }
     }
   }
