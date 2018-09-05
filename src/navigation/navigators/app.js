@@ -1,16 +1,11 @@
 import { createBottomTabNavigator } from 'react-navigation';
 import * as screenNames from '../screen_names';
 import Settings from 'features/settings/containers';
-import { UserProfile } from 'features/user_profile/containers';
 
 export default createBottomTabNavigator(
   {
     [screenNames.SETTINGS]: {
       screen: Settings
-    },
-
-    [screenNames.WELCOME]: {
-      screen: UserProfile
     }
   },
   {

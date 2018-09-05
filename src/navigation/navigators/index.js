@@ -1,31 +1,30 @@
-import React from 'react';
-import { createStackNavigator } from 'react-navigation';
+import { createSwitchNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import {
   reduxifyNavigator,
   createReactNavigationReduxMiddleware,
 } from 'react-navigation-redux-helpers';
 
-import WelcomeNavigator from './welcome';
 import * as screenNames from '../screen_names';
-import Splash from 'features/splash/containers';
+import Welcome from 'features/welcome/containers';
+import Auth from './auth';
+import App from './app';
 
 const middleware = createReactNavigationReduxMiddleware(
   'root',
   state => state.nav
 );
 
-const RootNavigator = createStackNavigator({
-  [screenNames.SPLASH]: {
-    screen: Splash
+const RootNavigator = createSwitchNavigator(
+  {
+    [screenNames.WELCOME]: Welcome,
+    [screenNames.APP]: App,
+    [screenNames.AUTH]: Auth,
   },
-
-  [screenNames.WELCOME]: {
-    screen: WelcomeNavigator
+  {
+    initialRouteName: screenNames.WELCOME,
   }
-}, {
-  initialRouteName: screenNames.SPLASH,
-});
+);
 
 const AppWithNavigationState = reduxifyNavigator(RootNavigator, 'root');
 
@@ -34,6 +33,5 @@ const mapStateToProps = state => ({
 });
 
 const AppNavigator = connect(mapStateToProps)(AppWithNavigationState);
-
 
 export { RootNavigator, AppNavigator, middleware };

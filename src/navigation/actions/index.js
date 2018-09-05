@@ -9,9 +9,14 @@ export const navigateToWelcome = () =>
     routeName: screenNames.WELCOME
   });
 
-export const navigateToSplash = () =>
+export const navigateToSignIn = () =>
   NavigationActions.navigate({
-    routeName: screenNames.SPLASH
+    routeName: screenNames.SIGNIN
+  });
+
+export const navigateToApp = () =>
+  NavigationActions.navigate({
+    routeName: screenNames.APP
   });
 
 export const exitApp = () => {
